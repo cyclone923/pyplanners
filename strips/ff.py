@@ -4,7 +4,7 @@ from misc.functions import argmin, flatten
 def get_layers(costs):
     num_layers = max(pair.level for pair in costs.values()) + 1
     layers = [[] for level in range(num_layers)]
-    for value, (_, level) in costs.iteritems():
+    for value, (_, level) in costs.items():
         layers[level].append(value)
     return layers
 
@@ -59,10 +59,10 @@ def none(operator_costs, relaxed_plan, relaxed_goals):
     return []
 
 def applicable(operator_costs, relaxed_plan, relaxed_goals):
-    return [o for o, (_, level) in operator_costs.iteritems() if level == 0]
+    return [o for o, (_, level) in operator_costs.items() if level == 0]
 
 def first_goals(operator_costs, relaxed_plan, relaxed_goals):
-    return [o for o, (_, level) in operator_costs.iteritems() if level == 0 and any(effect in relaxed_goals[1] for effect in o.effects)]
+    return [o for o, (_, level) in operator_costs.items() if level == 0 and any(effect in relaxed_goals[1] for effect in o.effects)]
 
 def first_operators(operator_costs, relaxed_plan, relaxed_goals):
     return relaxed_plan[0]

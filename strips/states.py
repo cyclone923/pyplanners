@@ -28,6 +28,8 @@ class Literal(object):
         return (type(self) == type(other)) and (self.sign == other.sign) and (self.args == other.args)
     def __ne__(self, other):
         return not (self == other)
+    def __lt__(self, other): # tie breaking for heap
+        return True
     def __hash__(self):
         return hash((self.__class__, self.args, self.sign))
     def __str__(self):

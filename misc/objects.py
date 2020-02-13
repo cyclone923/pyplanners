@@ -1,7 +1,6 @@
 from collections import deque, namedtuple, defaultdict, Counter as CountDict, Mapping, Iterable, Iterator, Set
 from heapq import heappush, heappop, heapify
 import numpy as np
-from string import join
 import types
 
 # Old style classes don't inherit from object => type(old) != old.__class__
@@ -37,7 +36,7 @@ def str_object(obj):
   return str(obj)
 
 def str_line(*args):
-  return join([str_object(item) for item in args])
+  return "".join([str_object(item) for item in args])
 
 def str_args(args):
   return '(%s)' % ', '.join([str_object(item) + '=' +  str_object(args[item]) \
